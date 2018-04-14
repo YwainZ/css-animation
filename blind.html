@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html * {
+            padding: 0;
+            margin: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            height: 300px;
+            background: url("./img/blindimg.jpeg") no-repeat;
+            background-size: 100% 100%;
+            margin-bottom: 10px;
+        }
+
+        .bg {
+            width: 100%;
+            height: 300px;
+            background: #6d997a;
+            margin-bottom: 10px;
+
+        }
+
+        .wrapper {
+            position: absolute;
+            top: 620px;
+            width: 100%;
+            height: 300px;
+            transition: height 1s ease;
+            z-index: 10;
+        }
+
+        .wrapper .item {
+            position: relative;
+            width: 100%;
+            height: 30px;
+            background: #6d997a;
+            transition: transform ease;
+            transform: rotateX(0deg);
+            transition-duration: 0.1s;
+            z-index: 4;
+            border-radius: 3px;
+            box-shadow: 0 1px 3px #888888 inset;
+
+        }
+
+        .wrapper .item1 {
+            transform-origin: 0 0;
+        }
+
+        .wrapper .item1 {
+            transform-origin: 15px 0;
+        }
+
+        .wrapper .item2 {
+            transform-origin: 45px 0;
+        }
+
+        .wrapper .item3 {
+            transform-origin: 75px 0;
+        }
+
+        .wrapper .item4 {
+            transform-origin: 105px 0;
+        }
+
+        .wrapper .item5 {
+            transform-origin: 135px 0;
+        }
+
+        .wrapper .item6 {
+            transform-origin: 165px 0;
+        }
+
+        .wrapper .item7 {
+            transform-origin: 195px 0;
+        }
+
+        .wrapper .item8 {
+            transform-origin: 225px 0;
+        }
+
+        .wrapper .item9 {
+            transform-origin: 255px 0;
+        }
+
+        .wrapper .item9 {
+            transform-origin: 235px 0;
+        }
+
+    </style>
+</head>
+<body>
+<script>
+    function controller() {
+        window.onscroll = function (e) {
+            console.log("top", document.documentElement.scrollTop);
+            let items = document.getElementsByClassName("item");
+            let len = items.length;
+            let n;
+
+            if (document.documentElement.scrollTop <= 176) {
+                n = 0;
+            }
+            else if (document.documentElement.scrollTop >= 605) {
+                n= 90;
+            }
+            else {
+                n = parseInt(document.documentElement.scrollTop / 6.8);
+            }
+            console.log(n);
+            for (let i = 0; i < len; i++) {
+                items[i].style.transform = "rotateX(" + n + "deg)";
+            }
+
+        }
+
+    }
+    document.onscroll = controller;
+</script>
+<div class="bg"></div>
+<div class="bg"></div>
+<div class="container"></div>
+<div class="wrapper">
+    <div class="item item1"></div>
+    <div class="item item2"></div>
+    <div class="item item3"></div>
+    <div class="item item4"></div>
+    <div class="item item5"></div>
+    <div class="item item6"></div>
+    <div class="item item7"></div>
+    <div class="item item8"></div>
+    <div class="item item9"></div>
+    <div class="item item10"></div>
+</div>
+<div class="bg"></div>
+<div class="bg"></div>
+</body>
+</html>
