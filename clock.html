@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            background: black;
+        }
+    </style>
+</head>
+<body>
+<style>
+</style>
+<canvas id="canvas" width="500px" height="500px"></canvas>
+<script>
+    let canvas = document.getElementById("canvas");
+    let ctx = canvas.getContext("2d");
+    ctx.strokeStyle="#00ffff";
+    ctx.lineWidth = 17;
+    ctx.shadowBlur = 15;
+    ctx.shadowColor = "#00ffff";
+
+    //circle
+    function renderTime() {
+        let now = new Date();
+        let tody = now.toDateString();
+        let time = now.toLocaleTimeString();
+        let hrs = now.getHours();
+        let min = now.getMinutes();
+        let sec = now.getSeconds();
+        let ms = now.getMilliseconds();
+        let smoothsec = sec + (ms/1000);
+        let smoothmin = min + (sec/60);
+
+        //background
+        let gradient = ctx.createRadialGradient(250,250,5,250,250,300);
+        gradient.addColorStop(0,"#03303a");
+        gradient.addColorStop(1,'black');
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0,0,500,500);
+
+        //circle
+        ctx.beginPath();
+        ctx.arc(250,250,200,(270/180)*Math.PI,Math.PI*((hrs*30-90)/180));
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(250,250,170,(270/180)*Math.PI,Math.PI*((smoothmin*6-90)/180));
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(250,250,140,(270/180)*Math.PI,Math.PI*((smoothsec*6-90)/180));
+        ctx.stroke();
+
+        //date
+        ctx.font="25px Helvetica";
+        ctx.fillStyle = "#00ffff";
+        ctx.fillText(tody,175,250);
+
+        //time
+        ctx.font = "25px Helvetica blod";
+        ctx.fillStyle="#00ffff";
+        ctx.fillText(time+":"+ms,175,280);
+
+    }
+    setInterval(renderTime,40)
+</script>
+
+</body>
+</html>
