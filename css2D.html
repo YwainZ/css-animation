@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+ <style>
+	 .container{
+	     margin: 10% auto auto 30%;
+	 }
+	 .rectangle {
+		 width: 70px;
+		 height: 80px;
+		 background: rgb(247,246,246);
+		 border:1px solid #ededed;
+		 text-align: center;
+		 line-height: 80px;
+		 float: left;
+		 margin-right: 50px;
+	 }
+	 .box1 {
+		 transform: skew(30deg);
+		 -ms-transform:skew(30deg); 	/* IE 9 */
+		 -moz-transform:skew(30deg); 	/* Firefox */
+		 -webkit-transform:skew(30deg); /* Safari 和 Chrome */
+		 -o-transform:skew(30deg);
+	 }
+	 .box2 {
+		 transform: scaleX(0.5);
+		 -ms-transform: scaleX(0.5);
+		 -moz-transform: scaleX(0.5);
+		 -webkit-transform: scaleX(0.5);
+		 -o-transform: scaleX(0.5);
+	 }
+	 .box3 {
+		 transform: rotate(45deg);
+		 -ms-transform: rotate(45deg);
+		 -moz-transform: rotate(45deg);
+		 -webkit-transform: rotate(45deg);
+		 -o-transform: rotate(45deg);
+	 }
+	 .box4 {
+		 transform: translate(10px, 20px);
+		 -ms-transform: translate(10px, 20px);
+		 -moz-transform: translate(10px, 20px);
+		 -webkit-transform: translate(10px, 20px);
+		 -o-transform: translate(10px, 20px);
+	 }
+	 .box5 {
+		 transform: skew(30deg) scaleX(0.5) rotate(45deg) translate(10px, 20px);
+		 -ms-transform: skew(30deg) scaleX(0.5) rotate(45deg) translate(10px, 20px);
+		 -moz-transform: skew(30deg) scaleX(0.5) rotate(45deg) translate(10px, 20px);
+		 -webkit-transform: skew(30deg) scaleX(0.5) rotate(45deg) translate(10px, 20px);
+		 -o-transform: skew(30deg) scaleX(0.5) rotate(45deg) translate(10px, 20px);
+	 }
+ </style>
+ <div class="container">
+ <div class="rectangle box0">box0</div>
+ <div class="rectangle box1">box1</div>
+ <div class="rectangle box2">box2</div>
+ <div class="rectangle box3">box3</div>
+ <div class="rectangle box4">box4</div>
+ <div class="rectangle box5">box5</div>
+ </div>
+</body>
+</html>
