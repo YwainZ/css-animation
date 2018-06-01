@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<style type="text/css">
+		.slide {
+			width: 100%;
+			height: 800px;
+			position: absolute;
+		}
+		.footer {
+			width: 70%;
+			height: 150px;
+			display: flex;
+			justify-content: space-around;
+			z-index: 999;
+			position: fixed;
+			bottom: 0;
+			left: 200px;
+		}
+		.img {
+			width: 180px;
+			height: 150px;
+			z-index: -1
+		}
+		.one {
+			background: url("img/cat1.jpg") no-repeat;
+			background-size: 100% 100%;
+		}
+		.two {
+			background: url("img/cat2.jpg") no-repeat;
+			background-size: 100% 100%;
+		}
+		.three {
+			background: url("img/cat3.jpg") no-repeat;
+			background-size: 100% 100%;
+		}
+		.four {
+			background: url("img/cat4.jpg") no-repeat;
+			background-size: 100% 100%;
+		}
+		.five {
+			background: url("img/cat5.jpg") no-repeat;
+			background-size: 100% 100%;
+		}
+		.style1 {
+			animation: move 0.5s ease-out;
+			animation-fill-mode: backwards;
+		}
+		.style2 {
+			animation: move2 0.5s ease-out;
+			animation-fill-mode: backwards;
+		}
+		.style3 {
+			animation: changeScale 1s ease-in;
+			animation-fill-mode: backwards;
+		}
+		.style4 {
+			animation: changeScale2 1s ease-out;
+			animation-fill-mode: backwards;
+		}
+		.style5 {
+			animation: changeRotate 1s ease-in;
+			animation-fill-mode: backwards;
+		}
+		.img:hover {
+			cursor: pointer;
+		}
+
+		@keyframes move {
+			from {
+				transform: translateX(-500px);
+			}
+			to {
+				transform: translateX(0);
+			}
+		}
+
+		@keyframes move2 {
+			from {
+				transform: translateY(350px);
+			}
+			to {
+				transform: translateY(0);
+			}
+		}
+
+		@keyframes changeScale {
+			from {
+				transform: scale(0.1);
+			}
+			to {
+				transform: scale(1);
+			}
+		}
+
+		@keyframes changeScale2 {
+			from {
+				transform: scale(2);
+			}
+			to {
+				transform: scale(1);
+			}
+		}
+
+		@keyframes changeRotate {
+			from {
+				transform: rotate(-360deg) scale(0.1);
+			}
+			to {
+				transform: rotate(0deg) scale(1);
+			}
+		}
+
+	</style>
+</head>
+<body>
+<script>
+	//[1,2,3,4,5]
+	let slides = document.getElementsByClassName('slide');
+	function addStyle(num) {
+                slides[num-1].style.zIndex = '999';
+                slides[num-1].classList.add('style'+ num);
+                let arr = [1,2,3,4,5];
+		        for (let i = 0; i< arr.length; i++) {
+                    if (num-1 === i) {
+                        arr.splice(i, 1);
+                    }
+                }
+		        arr.forEach(item => {
+                    slides[item-1].style.zIndex = '-1';
+		            slides[item-1].classList.remove('style'+item)
+		        })
+
+    }
+
+</script>
+<div class="slide one"></div>
+<div class="slide two"></div>
+<div class="slide three"></div>
+<div class="slide four"></div>
+<div class="slide five"></div>
+<div class="footer">
+	<img src="img/cat1.jpg" class="img demo1" onclick="addStyle(1)">
+	<img src="img/cat2.jpg" class="img demo2" onclick="addStyle(2)">
+	<img src="img/cat3.jpg" class="img demo3" onclick="addStyle(3)">
+	<img src="img/cat4.jpg" class="img demo4" onclick="addStyle(4)">
+	<img src="img/cat5.jpg" class="img demo5" onclick="addStyle(5)">
+</div>
+
+</body>
+</html>
