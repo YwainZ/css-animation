@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        var flag = false;
+
+        function change() {
+            if (!flag) {
+                document.getElementById('title').className = "tip";
+                flag = !flag;
+            } else {
+                document.getElementById('title').classList.remove('tip');
+                document.getElementById('title').className = "back";
+                flag = !flag;
+            }
+        }
+    </script>
+    <style>
+        div h3 {
+            position: relative;
+        }
+        div h3:after {
+            content: "";
+            width: 80px;
+            height: 3px;
+            position: absolute;
+            left: 0;
+            top:30px;
+            text-align: center;
+        }
+
+        .back {
+            animation: back 0.5s ease-in-out;
+        }
+
+        .back:after {
+            animation: animated_back 0.5s ease-in-out;
+        }
+
+        .tip {
+            animation: animated_h3 0.5s ease-in-out;
+            animation-fill-mode: forwards;
+        }
+
+        .tip:after {
+            animation: animated_after 0.5s ease-in-out;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes back {
+            from {
+                color: blue;
+            }
+            to {
+                color: black;
+            }
+        }
+
+        @keyframes animated_back {
+            from {
+                background: blue;
+                transform: scaleX(1);
+            }
+            to {
+                transform: scaleX(0);
+                background: blue;
+            }
+        }
+
+        @keyframes animated_after {
+            from {
+                transform: scaleX(0);
+            }
+            to {
+                transform: scaleX(1);
+                background: blue;
+            }
+        }
+
+        @keyframes animated_h3 {
+            from {
+                color: black;
+            }
+            to {
+                color: blue;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h3 id="title">前端学院</h3>
+        <input type="button" value="切换样式" onclick="change()">
+    </div>
+</body>
+
+</html>
